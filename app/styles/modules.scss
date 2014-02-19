@@ -1,7 +1,7 @@
 .character {
   margin-bottom: 1.2em;
 }
-.character-mug img {
+.character-mug img, .comic-cover img {
   width: 100%;
 }
 .event, .comic, .series {
@@ -11,4 +11,7 @@
   &:last-child {
     border-bottom: 0 none;
   }
+}
+.hidden-xs {
+  margin-bottom: 1em;
 }
