@@ -1,0 +1,50 @@
+<div class="row">
+  <div class="col-xs-12">
+    <h2>{{comic.title}}</h2>    
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xs-12 col-sm-6">
+    <div class="comic-cover">
+      <img ng-src="{{comic.thumbnail.path}}/portrait_uncanny.{{comic.thumbnail.extension}}" alt="">
+    </div> 
+  </div>
+  <div class="col-xs-12 col-sm-6">
+    <div class="comic-info is-padded">
+      <div class="bio">
+        {{comic.description}}
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">Details</div>
+      <ul class="list-group">
+        <li class="list-group-item"><strong>Format:</strong> {{comic.format}}</li>
+        <li class="list-group-item"><strong>On Sale:</strong> {{comic.dates[0].date | date}}</li>
+        <li class="list-group-item"><strong>Pages:</strong> {{comic.pageCount}}</li>
+        <li class="list-group-item"><strong>Series:</strong> <a href="">{{comic.series.name}}</a></li>
+        <li class="list-group-item">
+          <strong>Events:</strong>
+          <ul>
+            <li ng-repeat="event in comic.events.items">
+              <a href="">{{event.name}}</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="clearfix"></div>
+</div>
+
+<div class="row">
+  <div class="col-xs-12">
+    <h3>Images</h3>
+  </div>
+  <div class="col-xs-12">
+    <div class="comic-image col-xs-6 col-sm-4 col-md-3" ng-repeat="image in comic.images">
+    <img ng-src="{{image.path}}/portrait_xlarge.{{image.extension}}" alt="">
+    </div>
+  </div>
+</div>
+

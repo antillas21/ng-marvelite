@@ -26,7 +26,7 @@
   </div>
   <div class="col-xs-12">
     <div class="comic" ng-repeat="comic in character.comics.items">
-      <a href="">{{comic.name}}</a>
+      <a href="/#/comics/{{extractComicId(comic.resourceURI)}}">{{comic.name}}</a>
     </div>
   </div>
 </div>

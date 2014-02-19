@@ -6,5 +6,9 @@ angular.module('ngMarveliteApp')
   function ($scope, $routeParams, $resource, Character) {
     Character.fetch($routeParams.id).then(function(data) {
       $scope.character = data.results[0];
+
+      $scope.extractComicId = function(str) {
+        return str.split('/').pop();
+      };
     });
   }]);

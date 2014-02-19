@@ -24,6 +24,10 @@ angular.module('ngMarveliteApp', [
         templateUrl: 'views/comics-list.html',
         controller: 'ComicsListCtrl'
       })
+      .when('/comics/:id', {
+        templateUrl: 'views/comic.html',
+        controller: 'ComicCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
