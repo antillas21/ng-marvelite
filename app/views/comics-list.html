@@ -70,8 +70,8 @@
 </div>
 
 <div class="pagination-container">
-  <ul class="pagination">
-    <li ng-show="showPrev()"><a ng-click="filterComics(formatFilter, typeFilter,dateFilter, prevPage())">prev</a></li>
-    <li ng-show="showNext()"><a ng-click="filterComics(formatFilter, typeFilter,dateFilter, nextPage())">next</a></li>
+  <ul class="pager">
+    <li class="previous" ng-show="showPrev()"><a ng-click="filterComics(formatFilter, typeFilter,dateFilter, prevPage())">&larr; prev</a></li>
+    <li class="next" ng-show="showNext()"><a ng-click="filterComics(formatFilter, typeFilter,dateFilter, nextPage())">next &rarr;</a></li>
   </ul>
 </div>

@@ -5,7 +5,7 @@
     <div class="input-group">
       <input type="text" class="form-control" ng-model="search" />
       <span class="input-group-btn">
-        <button class="btn btn-default" type="button" ng-click="searchCharacters()">Search</button>
+        <button class="btn btn-danger" type="button" ng-click="searchCharacters()"><span class="glyphicon glyphicon-search"></span> Search</button>
       </span>
     </div>
   </div>
@@ -30,8 +30,8 @@
 </div>
 
 <div class="pagination-container">
-  <ul class="pagination">
-    <li ng-show="showPrev()"><a ng-href="/#/characters?page={{prevPage()}}">prev</a></li>
-    <li ng-show="showNext()"><a ng-href="/#/characters?page={{nextPage()}}">next</a></li>
+  <ul class="pager">
+    <li class="previous" ng-show="showPrev()"><a ng-href="/#/characters?page={{prevPage()}}">&larr; prev</a></li>
+    <li class="next" ng-show="showNext()"><a ng-href="/#/characters?page={{nextPage()}}">next &rarr;</a></li>
   </ul>
 </div>
