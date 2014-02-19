@@ -1,0 +1,33 @@
+<h2>Comics featuring {{character.name}}</h2>
+<div class="row">
+  <div class="comics">
+    <div class="comic" ng-repeat="comic in characterComics">
+      <div class="comic-cover col-xs-6 col-sm-4">
+        <img ng-src="{{comic.thumbnail.path}}/portrait_fantastic.{{comic.thumbnail.extension}}" alt="">
+      </div>
+      <div class="comic-info col-xs-6 col-sm-8">
+        <a ng-href="/#/comics/{{comic.id}}">
+          <h5>{{comic.title}}</h5>
+        </a>
+        <div class="hidden-xs">
+          {{comic.description}}
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <p><strong>Format:</strong> {{comic.format}} <br />
+            <strong>On Sale:</strong> {{comic.dates[0].date | date}}</p>
+          </div>
+        </div>
+      </div>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</div>
+
+<div class="pagination-container">
+  <ul class="pagination">
+    <li ng-show="showPrev()"><a ng-href="/#/characters/{{characterId}}/comics?page={{prevPage()}}">prev</a></li>
+    <li ng-show="showNext()"><a ng-href="/#/characters/{{characterId}}/comics?page={{nextPage()}}">next</a></li>
+
+  </ul>
+</div>

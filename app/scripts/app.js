@@ -20,6 +20,10 @@ angular.module('ngMarveliteApp', [
         templateUrl: 'views/character.html',
         controller: 'CharacterCtrl'
       })
+      .when('/characters/:id/comics', {
+        templateUrl: 'views/character-comics.html',
+        controller: 'CharacterComicsCtrl'
+      })
       .when('/comics', {
         templateUrl: 'views/comics-list.html',
         controller: 'ComicsListCtrl'
