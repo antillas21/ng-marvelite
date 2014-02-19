@@ -13,9 +13,9 @@ angular.module('ngMarveliteApp')
   });
 
   return {
-    fetchAll: function(offset, qty) {
+    fetchAll: function(offset, qty, searchTerm) {
       var deferred = $q.defer();
-      resource.list({ offset: offset, limit: qty }, function(response) {
+      resource.list({ offset: offset, limit: qty, name: searchTerm }, function(response) {
         deferred.resolve(response.data);
       }, function(response) {
         deferred.reject(response);
@@ -30,7 +30,7 @@ angular.module('ngMarveliteApp')
       }, function(response) {
         deferred.reject(response);
       });
-      
+
       return deferred.promise;
     }
   };

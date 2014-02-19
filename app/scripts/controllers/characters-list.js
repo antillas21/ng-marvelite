@@ -10,8 +10,10 @@ angular.module('ngMarveliteApp')
       return (pageNumber - 1) * $scope.pageSize;
     };
 
-    $scope.fetchCharacters = function(page, perPage) {
-      Character.fetchAll(page, perPage).then(function(data) {
+    $scope.search = '';
+
+    $scope.fetchCharacters = function(page, perPage, searchTerm) {
+      Character.fetchAll(page, perPage, searchTerm).then(function(data) {
         $scope.processData(data);
       }).then(function() {
         // helper methods
@@ -41,6 +43,13 @@ angular.module('ngMarveliteApp')
       $scope.pageSize = data.limit;
       $scope.totalRecords = data.total;
       $scope.offset = data.offset;
+    };
+
+    $scope.searchCharacters = function() {
+      $scope.fetchCharacters(
+        $scope.paginate($route.current.params.page),
+        $scope.pageSize, $scope.search
+      );
     };
 
     $scope.fetchCharacters(
