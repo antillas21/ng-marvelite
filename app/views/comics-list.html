@@ -1,6 +1,50 @@
 <h1>Comics</h1>
 
 <div class="row">
+  <form action="" class="form-inline" role="form">
+    <div class="col-xs-12 col-sm-4">
+      <div class="form-group">
+        <label for="format">Format</label>
+        <select name="format" id="comic_format" class="form-control" ng-model="formatFilter" ng-change="filterComics(formatFilter, typeFilter,dateFilter)">
+          <option value="">Select an option</option>
+          <option value="comic">Comic</option>
+          <option value="magazine">Magazine</option>
+          <option value="trade paperback">Trade Paperback</option>
+          <option value="hardcover">Hardcover</option>
+          <option value="digest">Digest</option>
+          <option value="graphic novel">Graphic Novel</option>
+          <option value="digital comic">Digital Comic</option>
+          <option value="infinite comic">Infinite Comic</option>
+        </select>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-4">
+      <div class="form-group">
+        <label for="type">Type</label>
+        <select name="type" id="comic_type" class="form-control" ng-model="typeFilter" ng-change="filterComics(formatFilter, typeFilter, dateFilter)">
+          <option value="">Select an option</option>
+          <option value="comic">Comic</option>
+          <option value="collection">Collection</option>
+        </select>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-4">
+      <div class="form-group">
+        <label for="date">Published on</label>
+        <select name="date" id="comic_date" class="form-control" ng-model="dateFilter" ng-change="filterComics(formatFilter, typeFilter, dateFilter)">
+          <option value="">Select an option</option>
+          <option value="lastWeek">Last Week</option>
+          <option value="thisWeek">This Week</option>
+          <option value="nextWeek">Next Week</option>
+          <option value="thisMonth">This Month</option>
+        </select>
+      </div>
+    </div>
+  </form>
+  <div class="clearfix"></div>
+</div>
+
+<div class="row">
   <div class="comics">
     <div class="comic" ng-repeat="comic in comics">
       <div class="comic-cover col-xs-6 col-sm-4">
@@ -27,7 +71,7 @@
 
 <div class="pagination-container">
   <ul class="pagination">
-    <li ng-show="showPrev()"><a ng-href="/#/comics?page={{prevPage()}}">prev</a></li>
-    <li ng-show="showNext()"><a ng-href="/#/comics?page={{nextPage()}}">next</a></li>
+    <li ng-show="showPrev()"><a ng-click="filterComics(formatFilter, typeFilter,dateFilter, prevPage())">prev</a></li>
+    <li ng-show="showNext()"><a ng-click="filterComics(formatFilter, typeFilter,dateFilter, nextPage())">next</a></li>
   </ul>
 </div>

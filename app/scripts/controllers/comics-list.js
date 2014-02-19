@@ -10,8 +10,8 @@ angular.module('ngMarveliteApp')
       return (pageNumber - 1) * $scope.pageSize;
     };
 
-    $scope.fetchComics = function(page, perPage) {
-      Comic.fetchAll(page, perPage).then(function(data) {
+    $scope.fetchComics = function(page, perPage, format, type, dateRange) {
+      Comic.fetchAll(page, perPage, format, type, dateRange).then(function(data) {
         $scope.processData(data);
       }).then(function() {
         // helper methods
@@ -43,12 +43,25 @@ angular.module('ngMarveliteApp')
       $scope.offset = data.offset;
     };
 
-    // $scope.searchCharacters = function() {
-    //   $scope.fetchCharacters(
-    //     $scope.paginate($route.current.params.page),
-    //     $scope.pageSize, $scope.search
-    //   );
-    // };
+    $scope.filterComics = function(formatFilter, typeFilter, dateFilter, pageNumber) {
+      if (pageNumber === undefined) {
+        pageNumber = 1;
+      }
+      if (formatFilter === '') {
+        formatFilter = undefined;
+      }
+      if (typeFilter === '') {
+        typeFilter = undefined;
+      }
+      if (dateFilter === '') {
+        dateFilter = undefined;
+      }
+
+      $scope.fetchComics(
+        $scope.paginate(pageNumber),
+        $scope.pageSize, formatFilter, typeFilter, dateFilter
+      );
+    };
 
     $scope.fetchComics(
       $scope.paginate($route.current.params.page),

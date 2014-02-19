@@ -13,9 +13,9 @@ angular.module('ngMarveliteApp')
   });
 
   return {
-    fetchAll: function(offset, qty) {
+    fetchAll: function(offset, qty, format, type, dateRange) {
       var deferred = $q.defer();
-      resource.list({ offset: offset, limit: qty },
+      resource.list({ offset: offset, limit: qty, format: format, formatType: type, dateDescriptor: dateRange },
         function(response) {
           deferred.resolve(response.data);
         },
