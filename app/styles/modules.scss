@@ -4,3 +4,11 @@
 .character-mug img {
   width: 100%;
 }
+.event, .comic, .series {
+  border-bottom: 1px solid #ccc;
+  padding: 0.8em 0;
+
+  &:last-child {
+    border-bottom: 0 none;
+  }
+}

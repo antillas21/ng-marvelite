@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/layout.css">
     <link rel="stylesheet" href="styles/modules.css">
+    <link rel="stylesheet" href="styles/states.css">
     <!-- endbuild -->
   </head>
   <body ng-app="ngMarveliteApp">
@@ -28,6 +29,14 @@
 
     <!-- Add your site or application content here -->
     <div class="container" ng-view=""></div>
+
+    <footer class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <p>Data provided by Marvel. © 2014 Marvel</p>
+            </div>
+        </div>
+    </footer>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
      <script>
@@ -62,6 +71,7 @@
         <script src="scripts/controllers/main.js"></script>
         <script src="scripts/services/character.js"></script>
         <script src="scripts/controllers/characters-list.js"></script>
+        <script src="scripts/controllers/character.js"></script>
         <!-- endbuild -->
 </body>
 </html>
