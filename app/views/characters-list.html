@@ -1,0 +1,25 @@
+<h1>Characters</h1>
+
+<div class="row">
+  <div class="characters">
+    <div class="character" ng-repeat="character in characters">
+      <div class="character-mug col-xs-3">
+        <img ng-src="{{character.thumbnail.path}}/standard_large.{{character.thumbnail.extension}}" alt="">
+      </div>
+      <div class="character-info col-xs-9">
+        <a ng-href="/#/characters/{{character.id}}">
+          <strong>{{character.name}}</strong>
+        </a>
+        <p>{{character.description}}</p>
+      </div>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</div>
+
+<div class="pagination-container">
+  <ul class="pagination">
+    <li ng-show="showPrev()"><a ng-href="/#/characters?page={{prevPage()}}">prev</a></li>
+    <li ng-show="showNext()"><a ng-href="/#/characters?page={{nextPage()}}">next</a></li>
+  </ul>
+</div>
