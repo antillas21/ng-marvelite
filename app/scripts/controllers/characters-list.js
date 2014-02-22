@@ -13,6 +13,10 @@ angular.module('ngMarveliteApp')
     $scope.search = '';
 
     $scope.fetchCharacters = function(page, perPage, searchTerm) {
+      if (isNaN(page) || page === undefined) {
+        page = 0;
+      }
+
       Character.fetchAll(page, perPage, searchTerm).then(function(data) {
         $scope.processData(data);
       }).then(function() {
@@ -45,10 +49,10 @@ angular.module('ngMarveliteApp')
       $scope.offset = data.offset;
     };
 
-    $scope.searchCharacters = function() {
+    $scope.searchCharacters = function(term) {
       $scope.fetchCharacters(
         $scope.paginate($route.current.params.page),
-        $scope.pageSize, $scope.search
+        $scope.pageSize, term
       );
     };
 
