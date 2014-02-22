@@ -58,7 +58,7 @@
 
 <div class="pagination-container">
   <ul class="pager">
-    <li class="previous" ng-show="showPrev()"><a ng-click="filterComics(formatFilter, typeFilter,dateFilter, prevPage())">&larr; prev</a></li>
-    <li class="next" ng-show="showNext()"><a ng-click="filterComics(formatFilter, typeFilter,dateFilter, nextPage())">next &rarr;</a></li>
+    <li class="previous" ng-show="showPrev()"><a ng-href="/#/comics?page={{prevPage()}}&format={{formatFilter}}&type={{typeFilter}}&published={{dateFilter}}">&larr; prev</a></li>
+    <li class="next" ng-show="showNext()"><a ng-href="/#/comics?page={{nextPage()}}&format={{formatFilter}}&type={{typeFilter}}&published={{dateFilter}}">next &rarr;</a></li>
   </ul>
 </div>
