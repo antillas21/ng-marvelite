@@ -5,20 +5,7 @@
       <div class="comic-cover col-xs-6 col-sm-4">
         <resource-image thumbnail="comic.thumbnail" variant="portrait_fantastic" />
       </div>
-      <div class="comic-info col-xs-6 col-sm-8">
-        <a ng-href="/#/comics/{{comic.id}}">
-          <h5>{{comic.title}}</h5>
-        </a>
-        <div class="hidden-xs">
-          {{comic.description}}
-        </div>
-        <div class="panel panel-default">
-          <div class="panel-body">
-            <p><strong>Format:</strong> {{comic.format}} <br />
-            <strong>On Sale:</strong> {{comic.dates[0].date | date}}</p>
-          </div>
-        </div>
-      </div>
+      <comic-item comic="comic"></comic-item>
       <div class="clearfix"></div>
     </div>
   </div>
