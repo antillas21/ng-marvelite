@@ -12,9 +12,7 @@
   </div>
   <div class="col-xs-12 col-sm-6">
     <div class="comic-info is-padded">
-      <div class="bio">
-        {{comic.description}}
-      </div>
+      <div class="bio" ng-bind-html="comic.description"></div>
     </div>
     <div class="panel panel-default">
       <div class="panel-heading">Details</div>

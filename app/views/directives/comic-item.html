@@ -2,9 +2,7 @@
   <a ng-href="/#/comics/{{comic.id}}">
     <h4>{{comic.title}}</h4>
   </a>
-  <div class="hidden-xs">
-    {{comic.description}}
-  </div>
+  <div class="hidden-xs" ng-bind-html="comic.description"></div>
   <div class="panel panel-default">
     <div class="panel-body">
       <p><strong>Format:</strong> {{comic.format}} <br />

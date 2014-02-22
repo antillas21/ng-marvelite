@@ -17,6 +17,7 @@
 }
 .pager .next > a, .pager .previous > a {
   color: white;
+  cursor: pointer;
   background-color: #d2322d;
   border-color: #ac2925;
   &:hover {
