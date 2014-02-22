@@ -7,7 +7,7 @@
 <div class="row">
   <div class="col-xs-12 col-sm-6">
     <div class="comic-cover">
-      <img ng-src="{{comic.thumbnail.path}}/portrait_uncanny.{{comic.thumbnail.extension}}" alt="">
+        <resource-image thumbnail="comic.thumbnail" variant="portrait_uncanny" />
     </div> 
   </div>
   <div class="col-xs-12 col-sm-6">
@@ -43,7 +43,7 @@
   </div>
   <div class="col-xs-12">
     <div class="comic-image col-xs-6 col-sm-4 col-md-3" ng-repeat="image in comic.images">
-    <img ng-src="{{image.path}}/portrait_xlarge.{{image.extension}}" alt="">
+      <resource-image thumbnail="image" variant="portrait_xlarge" />
     </div>
   </div>
 </div>

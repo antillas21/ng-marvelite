@@ -3,7 +3,7 @@
   <div class="comics">
     <div class="comic" ng-repeat="comic in characterComics">
       <div class="comic-cover col-xs-6 col-sm-4">
-        <img ng-src="{{comic.thumbnail.path}}/portrait_fantastic.{{comic.thumbnail.extension}}" alt="">
+        <resource-image thumbnail="comic.thumbnail" variant="portrait_fantastic" />
       </div>
       <div class="comic-info col-xs-6 col-sm-8">
         <a ng-href="/#/comics/{{comic.id}}">

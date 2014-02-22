@@ -16,7 +16,7 @@
   <div class="characters">
     <div class="character" ng-repeat="character in characters">
       <div class="character-mug col-xs-3">
-        <img ng-src="{{character.thumbnail.path}}/standard_large.{{character.thumbnail.extension}}" alt="">
+        <resource-image thumbnail="character.thumbnail" variant="standard_large" />
       </div>
       <div class="character-info col-xs-9">
         <a ng-href="/#/characters/{{character.id}}">
