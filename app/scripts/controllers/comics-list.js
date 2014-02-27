@@ -2,8 +2,8 @@
 
 angular.module('ngMarveliteApp')
 .controller('ComicsListCtrl',
-  ['$scope', '$route', '$location', 'Comic', 'Pager',
-  function ($scope, $route, $location, Comic, Pager) {
+  ['$scope', '$route', '$location', 'Comic', 'Pager', '_',
+  function ($scope, $route, $location, Comic, Pager, _) {
     console.log($location.search());
     $scope.pageSize = 20;
     $scope.formatFilter = $location.search().format;
@@ -29,21 +29,28 @@ angular.module('ngMarveliteApp')
       });
     };
 
-    $scope.cleanParams = function() {
-      if ($scope.formatFilter === '') {
-        $scope.formatFilter = undefined;
-      }
-      if ($scope.typeFilter === '') {
-        $scope.typeFilter = undefined;
-      }
-      if ($scope.dateFilter === '') {
-        $scope.dateFilter = undefined;
-      }
+    $scope.cleanParams = function(pageNumber) {
+      var searchParams = {
+        page: pageNumber,
+        format: $scope.formatFilter,
+        type: $scope.typeFilter,
+        published: $scope.dateFilter
+      };
+
+      var invalidKeys = [];
+      _.each(searchParams, function(value, key) {
+        if (value === undefined) {
+          invalidKeys.push(key);
+        }
+      });
+
+      return _.omit(searchParams, invalidKeys);
     };
 
-    $scope.filterComics = function() {
-      $scope.cleanParams();
-      $location.search({format: $scope.formatFilter, type: $scope.typeFilter, published: $scope.dateFilter});
+    $scope.filterComics = function(pageNumber) {
+      var page = pageNumber || 1;
+      var params = $scope.cleanParams(page);
+      $location.search(params);
     };
 
     $scope.cleanParams();

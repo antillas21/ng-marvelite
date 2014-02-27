@@ -5,7 +5,7 @@
     <div class="col-xs-12 col-sm-4">
       <div class="form-group">
         <label for="format">Format</label>
-        <select name="format" id="comic_format" class="form-control" ng-model="formatFilter" ng-change="filterComics(formatFilter, typeFilter,dateFilter)">
+        <select name="format" id="comic_format" class="form-control" ng-model="formatFilter" ng-change="filterComics()">
           <option value="">Select an option</option>
           <option value="comic">Comic</option>
           <option value="magazine">Magazine</option>
@@ -21,7 +21,7 @@
     <div class="col-xs-12 col-sm-4">
       <div class="form-group">
         <label for="type">Type</label>
-        <select name="type" id="comic_type" class="form-control" ng-model="typeFilter" ng-change="filterComics(formatFilter, typeFilter, dateFilter)">
+        <select name="type" id="comic_type" class="form-control" ng-model="typeFilter" ng-change="filterComics()">
           <option value="">Select an option</option>
           <option value="comic">Comic</option>
           <option value="collection">Collection</option>
@@ -31,7 +31,7 @@
     <div class="col-xs-12 col-sm-4">
       <div class="form-group">
         <label for="date">Published on</label>
-        <select name="date" id="comic_date" class="form-control" ng-model="dateFilter" ng-change="filterComics(formatFilter, typeFilter, dateFilter)">
+        <select name="date" id="comic_date" class="form-control" ng-model="dateFilter" ng-change="filterComics()">
           <option value="">Select an option</option>
           <option value="lastWeek">Last Week</option>
           <option value="thisWeek">This Week</option>
@@ -58,7 +58,7 @@
 
 <div class="pagination-container">
   <ul class="pager">
-    <li class="previous" ng-show="pager.showPrev()"><a ng-href="/#/comics?page={{pager.prevPage()}}&format={{formatFilter}}&type={{typeFilter}}&published={{dateFilter}}">&larr; prev</a></li>
-    <li class="next" ng-show="pager.showNext()"><a ng-href="/#/comics?page={{pager.nextPage()}}&format={{formatFilter}}&type={{typeFilter}}&published={{dateFilter}}">next &rarr;</a></li>
+    <li class="previous" ng-show="pager.showPrev()"><a ng-click="filterComics(pager.prevPage())">&larr; prev</a></li>
+    <li class="next" ng-show="pager.showNext()"><a ng-click="filterComics(pager.nextPage())">next &rarr;</a></li>
   </ul>
 </div>
