@@ -2,8 +2,8 @@
 
 angular.module('ngMarveliteApp')
 .controller('ComicsListCtrl',
-  ['$scope', '$route', '$location', '$resource', 'Comic',
-  function ($scope, $route, $location, $resouce, Comic) {
+  ['$scope', '$route', '$location', 'Comic', 'Pager',
+  function ($scope, $route, $location, Comic, Pager) {
     console.log($location.search());
     $scope.pageSize = 20;
     $scope.formatFilter = $location.search().format;
@@ -17,34 +17,16 @@ angular.module('ngMarveliteApp')
     $scope.fetchComics = function(page, perPage, format, type, dateRange) {
       Comic.fetchAll(page, perPage, format, type, dateRange).then(function(data) {
         $scope.processData(data);
-      }).then(function() {
-        // helper methods
-        $scope.pagesTotal = function() {
-          return Math.ceil($scope.totalRecords / $scope.pageSize);
-        };
-        $scope.currentPage = function() {
-          return Math.ceil($scope.offset / $scope.pageSize) + 1;
-        };
-        $scope.nextPage = function() {
-          return $scope.currentPage() + 1;
-        };
-        $scope.prevPage = function() {
-          return $scope.currentPage() - 1;
-        };
-        $scope.showNext = function() {
-          return $scope.nextPage() <= $scope.pagesTotal();
-        };
-        $scope.showPrev = function() {
-          return $scope.prevPage() >= 1;
-        };
       });
     };
 
     $scope.processData = function(data) {
       $scope.comics = data.results;
-      $scope.pageSize = data.limit;
-      $scope.totalRecords = data.total;
-      $scope.offset = data.offset;
+      $scope.pager = new Pager({
+        limit: data.limit,
+        total: data.total,
+        offset: data.offset
+      });
     };
 
     $scope.cleanParams = function() {

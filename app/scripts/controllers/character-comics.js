@@ -2,8 +2,8 @@
 
 angular.module('ngMarveliteApp')
   .controller('CharacterComicsCtrl',
-    ['$scope', '$resource', 'Character', 'CharacterComics', '$route', '$routeParams',
-    function ($scope, $resource, Character, CharacterComics, $route, $routeParams) {
+    ['$scope', 'Character', 'CharacterComics', '$route', '$routeParams', 'Pager',
+    function ($scope, Character, CharacterComics, $route, $routeParams, Pager) {
       $scope.pageSize = 20;
       $scope.characterId = $routeParams.id;
       // CharacterComics.fetchAll()
@@ -14,34 +14,16 @@ angular.module('ngMarveliteApp')
       $scope.fetchCharacterComics = function(id, page, perPage) {
         CharacterComics.fetchAll(id, page, perPage).then(function(data) {
           $scope.processData(data);
-        }).then(function() {
-          // helper methods
-          $scope.pagesTotal = function() {
-            return Math.ceil($scope.totalRecords / $scope.pageSize);
-          };
-          $scope.currentPage = function() {
-            return Math.ceil($scope.offset / $scope.pageSize) + 1;
-          };
-          $scope.nextPage = function() {
-            return $scope.currentPage() + 1;
-          };
-          $scope.prevPage = function() {
-            return $scope.currentPage() - 1;
-          };
-          $scope.showNext = function() {
-            return $scope.nextPage() <= $scope.pagesTotal();
-          };
-          $scope.showPrev = function() {
-            return $scope.prevPage() >= 1;
-          };
         });
       };
 
       $scope.processData = function(data) {
         $scope.characterComics = data.results;
-        $scope.pageSize = data.limit;
-        $scope.totalRecords = data.total;
-        $scope.offset = data.offset;
+        $scope.pager = new Pager({
+          limit: data.limit,
+          total: data.total,
+          offset: data.offset
+        });
       };
 
       $scope.fetchCharacter = function(id) {

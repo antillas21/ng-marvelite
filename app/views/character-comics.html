@@ -13,8 +13,8 @@
 
 <div class="pagination-container">
   <ul class="pager">
-    <li class="previous" ng-show="showPrev()"><a ng-href="/#/characters/{{characterId}}/comics?page={{prevPage()}}">&larr; prev</a></li>
-    <li class="next" ng-show="showNext()"><a ng-href="/#/characters/{{characterId}}/comics?page={{nextPage()}}">next &rarr;</a></li>
+    <li class="previous" ng-show="pager.showPrev()"><a ng-href="/#/characters/{{characterId}}/comics?page={{pager.prevPage()}}">&larr; prev</a></li>
+    <li class="next" ng-show="pager.showNext()"><a ng-href="/#/characters/{{characterId}}/comics?page={{pager.nextPage()}}">next &rarr;</a></li>
 
   </ul>
 </div>

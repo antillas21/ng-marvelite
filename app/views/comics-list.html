@@ -58,7 +58,7 @@
 
 <div class="pagination-container">
   <ul class="pager">
-    <li class="previous" ng-show="showPrev()"><a ng-href="/#/comics?page={{prevPage()}}&format={{formatFilter}}&type={{typeFilter}}&published={{dateFilter}}">&larr; prev</a></li>
-    <li class="next" ng-show="showNext()"><a ng-href="/#/comics?page={{nextPage()}}&format={{formatFilter}}&type={{typeFilter}}&published={{dateFilter}}">next &rarr;</a></li>
+    <li class="previous" ng-show="pager.showPrev()"><a ng-href="/#/comics?page={{pager.prevPage()}}&format={{formatFilter}}&type={{typeFilter}}&published={{dateFilter}}">&larr; prev</a></li>
+    <li class="next" ng-show="pager.showNext()"><a ng-href="/#/comics?page={{pager.nextPage()}}&format={{formatFilter}}&type={{typeFilter}}&published={{dateFilter}}">next &rarr;</a></li>
   </ul>
 </div>
