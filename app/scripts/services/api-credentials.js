@@ -7,7 +7,7 @@ angular.module('ngMarveliteApp')
     return {
       key: '85ec0830b5958f4f46ea2fa898a76ef2',
       ts: function() {
-        return Date.now();
+        return Date.now() * 10;
       },
       hashString: function() {
         return md5(this.ts() + privateKey + this.key);

@@ -4,7 +4,6 @@ angular.module('ngMarveliteApp')
 .controller('ComicsListCtrl',
   ['$scope', '$route', '$location', 'Comic', 'Pager', '_',
   function ($scope, $route, $location, Comic, Pager, _) {
-    console.log($location.search());
     $scope.pageSize = 20;
     $scope.formatFilter = $location.search().format;
     $scope.typeFilter = $location.search().type;
