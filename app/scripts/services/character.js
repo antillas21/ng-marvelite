@@ -5,7 +5,7 @@ angular.module('ngMarveliteApp')
   var resource = $resource('http://gateway.marvel.com/v1/public/characters/:id', {
     id: '@id',
     apikey: apiCredentials.key,
-    ts: apiCredentials.ts(),
+    ts: apiCredentials.ts,
     hash: apiCredentials.hashString()
   },
   {
