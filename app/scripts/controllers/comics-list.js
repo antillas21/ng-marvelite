@@ -22,6 +22,8 @@ angular.module('ngMarveliteApp')
 
     $scope.processData = function(data) {
       $scope.comics = data.results;
+      $scope.loadComplete = true;
+      $scope.noResults = data.total === 0;
       $scope.pager = new Pager({
         limit: data.limit,
         total: data.total,
@@ -39,7 +41,7 @@ angular.module('ngMarveliteApp')
 
       var invalidKeys = [];
       _.each(searchParams, function(value, key) {
-        if (value === undefined) {
+        if (value === undefined || value === '') {
           invalidKeys.push(key);
         }
       });

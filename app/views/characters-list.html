@@ -13,10 +13,16 @@
 </div>
 
 <div class="row">
+  <div class="loading" ng-hide="loadComplete">
+    <i class="fa fa-refresh fa-spin fa-3x"></i>
+  </div>
+  <div class="no-results col-xs-12" ng-show="noResults">
+    <h3>No results found</h3>
+  </div>
   <div class="characters">
     <div class="character" ng-repeat="character in characters">
       <div class="character-mug col-xs-3">
-        <resource-image thumbnail="character.thumbnail" variant="standard_large" />
+        <resource-image object-type="characters" object-id="{{character.id}}" thumbnail="character.thumbnail" variant="standard_large" />
       </div>
       <div class="character-info col-xs-9">
         <a ng-href="/#/characters/{{character.id}}">

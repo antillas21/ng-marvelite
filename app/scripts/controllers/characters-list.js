@@ -24,6 +24,8 @@ angular.module('ngMarveliteApp')
 
     $scope.processData = function(data) {
       $scope.characters = data.results;
+      $scope.loadComplete = true;
+      $scope.noResults = data.total === 0;
       $scope.pager = new Pager({
         limit: data.limit,
         total: data.total,

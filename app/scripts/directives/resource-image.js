@@ -3,12 +3,14 @@
 angular.module('ngMarveliteApp')
   .directive('resourceImage', [function () {
     return {
-      template: '<img ng-src="{{thumbnail.path}}/{{variant}}.{{thumbnail.extension}}" alt="thumbnail">',
+      template: '<a href="/#/{{objectType}}/{{objectId}}"><img ng-src="{{thumbnail.path}}/{{variant}}.{{thumbnail.extension}}" alt="thumbnail"></a>',
       restrict: 'E',
       replace: true,
       scope: {
         thumbnail: '=thumbnail',
-        variant: '@variant'
+        variant: '@variant',
+        objectType: '@',
+        objectId: '@'
       }
     };
   }]);

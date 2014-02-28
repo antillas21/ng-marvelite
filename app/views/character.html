@@ -5,12 +5,15 @@
 </div>
 
 <div class="row">
-  <div class="col-xs-12 col-sm-6">
+  <div class="loading" ng-hide="loadComplete">
+    <i class="fa fa-refresh fa-spin fa-3x"></i>
+  </div>
+  <div class="col-xs-12 col-sm-6" ng-show="loadComplete">
     <div class="character-mug">
-        <resource-image thumbnail="character.thumbnail" variant="standard_fantastic" />
+        <resource-image object-type="characters" object-id="{{character.id}}" thumbnail="character.thumbnail" variant="standard_fantastic" />
     </div> 
   </div>
-  <div class="col-xs-12 col-sm-6">
+  <div class="col-xs-12 col-sm-6" ng-show="loadComplete">
     <div class="character-info is-padded">
       <div class="bio">
         {{character.description}}
@@ -20,7 +23,7 @@
   <div class="clearfix"></div>
 </div>
 
-<div class="row">
+<div class="row" ng-show="loadComplete">
   <div class="col-xs-12">
     <h3>Comics <small><a href="/#/characters/{{character.id}}/comics">see all..</a></small></h3>
   </div>
@@ -31,7 +34,7 @@
   </div>
 </div>
 
-<div class="row">
+<div class="row" ng-show="loadComplete">
   <div class="col-xs-12">
     <h3>Events <small><a href="#">see all..</a></small></h3>
   </div>
@@ -41,7 +44,7 @@
     </div>
   </div>
 </div>
-<div class="row">
+<div class="row" ng-show="loadComplete">
   <div class="col-xs-12">
     <h3>Series <small><a href="#">see all..</a></small></h3>
   </div>
