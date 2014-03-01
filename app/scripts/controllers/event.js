@@ -12,4 +12,5 @@ angular.module('ngMarveliteApp')
       $scope.extractResourceId = function(resourceURI) {
         return resourceURI.split('/').pop();
       };
-    }]);
+    }
+  ]);

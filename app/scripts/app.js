@@ -40,6 +40,10 @@ angular.module('ngMarveliteApp', [
         templateUrl: 'views/event.html',
         controller: 'EventCtrl'
       })
+      .when('/events/:id/comics', {
+        templateUrl: 'views/event-comics.html',
+        controller: 'EventComicsCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
