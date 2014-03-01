@@ -1,0 +1,54 @@
+<div class="row">
+  <div class="col-xs-12">
+    <h2>{{comicEvent.title}}</h2>
+  </div>
+</div>
+
+<div class="row">
+  <div class="loading" ng-hide="loadComplete">
+    <i class="fa fa-refresh fa-spin fa-3x"></i>
+  </div>
+  <div class="col-xs-12 col-sm-6" ng-show="loadComplete">
+    <div class="comic-cover">
+        <resource-image object-type="events" object-id="{{comicEvent.id}}" thumbnail="comicEvent.thumbnail" variant="portrait_uncanny" />
+    </div> 
+  </div>
+  <div class="col-xs-12 col-sm-6" ng-show="loadComplete">
+    <div class="comic-info is-padded">
+      <div class="bio" ng-bind-html="comicEvent.description"></div>
+    </div>
+  </div>
+  <div class="clearfix"></div>
+</div>
+
+<div class="row" ng-show="loadComplete">
+  <div class="col-xs-12">
+    <h3>Comics <small><a href="/#/events/{{comicEvent.id}}/comics">see all..</a></small></h3>
+  </div>
+  <div class="col-xs-12">
+    <div class="comic" ng-repeat="comic in comicEvent.comics.items">
+      <a href="/#/comics/{{extractResourceId(comic.resourceURI)}}">{{comic.name}}</a>
+    </div>
+  </div>
+</div>
+
+<div class="row" ng-show="loadComplete">
+  <div class="col-xs-12">
+    <h3>Character <small><a href="#">see all..</a></small></h3>
+  </div>
+  <div class="col-xs-12">
+    <div class="character" ng-repeat="character in comicEvent.characters.items">
+      <a ng-href="/#/characters/{{extractResourceId(character.resourceURI)}}">{{character.name}}</a>
+    </div>
+  </div>
+</div>
+<div class="row" ng-show="loadComplete">
+  <div class="col-xs-12">
+    <h3>Series <small><a href="#">see all..</a></small></h3>
+  </div>
+  <div class="col-xs-12">
+    <div class="series" ng-repeat="series in comicEvent.series.items">
+      <a href="">{{series.name}}</a>
+    </div>
+  </div>
+</div>
