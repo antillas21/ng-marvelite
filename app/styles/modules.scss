@@ -4,8 +4,8 @@
 .character-mug img, .comic-cover img, .comic-image img {
   width: 100%;
 }
-.event, .comic, .series {
-  border-bottom: 1px solid #222;
+.event, .comic, .series, .character {
+  border-bottom: 1px solid #dfdfdf;
   padding: 1em 0;
 
   &:last-child {
