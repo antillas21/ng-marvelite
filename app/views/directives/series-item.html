@@ -1,0 +1,14 @@
+<div class="series-info col-xs-6 col-sm-8">
+  <a ng-href="/#/series/{{series.id}}">
+    <h4>{{series.title}}</h4>
+  </a>
+  <div class="hidden-xs" ng-bind-html="series.description"></div>
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <p>
+        <strong>Started on:</strong> {{series.startYear}} <br />
+        <strong>Ended on:</strong> {{series.endYear}}
+      </p>
+    </div>
+  </div>
+</div>
