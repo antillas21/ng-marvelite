@@ -12,6 +12,9 @@ angular.module('ngMarveliteApp')
       };
 
       $scope.fetchEventComics = function(id, page, perPage) {
+        if (isNaN(page) || page === undefined) {
+          page = 0;
+        }
         EventComics.fetchAll(id, page, perPage).then(function(data) {
           $scope.processData(data);
         });
