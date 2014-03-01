@@ -29,7 +29,7 @@
   </div>
   <div class="col-xs-12">
     <div class="comic" ng-repeat="comic in character.comics.items">
-      <a href="/#/comics/{{extractComicId(comic.resourceURI)}}">{{comic.name}}</a>
+      <a href="/#/comics/{{parser.extractResourceId(comic.resourceURI)}}">{{comic.name}}</a>
     </div>
   </div>
 </div>
@@ -40,7 +40,7 @@
   </div>
   <div class="col-xs-12">
     <div class="event" ng-repeat="event in character.events.items">
-      <a href="">{{event.name}}</a>
+      <a href="/#/events/{{parser.extractResourceId(event.resourceURI)}}">{{event.name}}</a>
     </div>
   </div>
 </div>
