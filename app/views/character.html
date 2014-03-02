@@ -36,7 +36,7 @@
 
 <div class="row" ng-show="loadComplete">
   <div class="col-xs-12">
-    <h3>Events <small><a href="#">see all..</a></small></h3>
+    <h3>Events <small><a href="/#/characters/{{character.id}}/events">see all..</a></small></h3>
   </div>
   <div class="col-xs-12">
     <div class="event" ng-repeat="event in character.events.items">
@@ -46,11 +46,11 @@
 </div>
 <div class="row" ng-show="loadComplete">
   <div class="col-xs-12">
-    <h3>Series <small><a href="#">see all..</a></small></h3>
+    <h3>Series <small><a href="/#/characters/{{character.id}}/series">see all..</a></small></h3>
   </div>
   <div class="col-xs-12">
     <div class="series" ng-repeat="series in character.series.items">
-      <a href="">{{series.name}}</a>
+      <a href="/#/series/{{parser.extractResourceId(series.resourceURI)}}">{{series.name}}</a>
     </div>
   </div>
 </div>
