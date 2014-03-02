@@ -23,12 +23,12 @@
         <li class="list-group-item"><strong>Format:</strong> {{comic.format}}</li>
         <li class="list-group-item"><strong>On Sale:</strong> {{comic.dates[0].date | date}}</li>
         <li class="list-group-item"><strong>Pages:</strong> {{comic.pageCount}}</li>
-        <li class="list-group-item"><strong>Series:</strong> <a href="/#/series/{{parser.extractResourceId(comic.series.resourceURI)}}">{{comic.series.name}}</a></li>
+        <li class="list-group-item"><strong>Series:</strong> <a ng-href="/#/series/{{parser.extractResourceId(comic.series.resourceURI)}}">{{comic.series.name}}</a></li>
         <li class="list-group-item">
           <strong>Events:</strong>
           <ul>
             <li ng-repeat="event in comic.events.items">
-              <a href="/#/events/{{parser.extractResourceId(event.resourceURI)}}">{{event.name}}</a>
+              <a ng-href="/#/events/{{parser.extractResourceId(event.resourceURI)}}">{{event.name}}</a>
             </li>
           </ul>
         </li>

@@ -5,7 +5,11 @@ angular.module('ngMarveliteApp')
     // Public API here
     return {
       extractResourceId: function(str) {
-        return str.split('/').pop();
+        if (str !== undefined) {
+          return str.split('/').pop();
+        } else {
+          return '';
+        }
       }
     };
   }]);
