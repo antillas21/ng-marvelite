@@ -36,7 +36,7 @@
 
 <div class="row" ng-show="loadComplete">
   <div class="col-xs-12">
-    <h3>Events <small><a href="#">see all..</a></small></h3>
+    <h3>Events <small><a ng-href="/#/series/{{comicSeries.id}}/events">see all..</a></small></h3>
   </div>
   <div class="col-xs-12" ng-show="comicSeries.events.items.length">
     <div class="event" ng-repeat="event in comicSeries.events.items">
