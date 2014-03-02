@@ -1,0 +1,56 @@
+<div class="row">
+  <div class="col-xs-12">
+    <h2>{{comicSeries.title}}</h2>
+  </div>
+</div>
+
+<div class="row">
+  <div class="loading" ng-hide="loadComplete">
+    <i class="fa fa-refresh fa-spin fa-3x"></i>
+  </div>
+  <div class="col-xs-12 col-sm-6" ng-show="loadComplete">
+    <div class="comic-thumbnail">
+        <resource-image object-type="series" object-id="{{comicSeries.id}}" thumbnail="comicSeries.thumbnail" variant="standard_fantastic" />
+    </div> 
+  </div>
+  <div class="col-xs-12 col-sm-6" ng-show="loadComplete">
+    <div class="series-info is-padded">
+      <div class="bio">
+        {{comicSeries.description}}
+      </div>
+    </div>
+  </div>
+  <div class="clearfix"></div>
+</div>
+
+<div class="row" ng-show="loadComplete">
+  <div class="col-xs-12" ng-show="comicSeries.characters.comics.length">
+    <h3>Comics <small><a href="/#/series/{{comicSeries.id}}/comics">see all..</a></small></h3>
+  </div>
+  <div class="col-xs-12" ng-show="comicSeries.comics.items.length">
+    <div class="comic" ng-repeat="comic in comicSeries.comics.items">
+      <a href="/#/comics/{{parser.extractResourceId(comic.resourceURI)}}">{{comic.name}}</a>
+    </div>
+  </div>
+</div>
+
+<div class="row" ng-show="loadComplete">
+  <div class="col-xs-12" ng-show="comicSeries.events.items.length">
+    <h3>Events <small><a href="#">see all..</a></small></h3>
+  </div>
+  <div class="col-xs-12" ng-show="comicSeries.events.items.length">
+    <div class="event" ng-repeat="event in comicSeries.events.items">
+      <a href="/#/events/{{parser.extractResourceId(event.resourceURI)}}">{{event.name}}</a>
+    </div>
+  </div>
+</div>
+<div class="row" ng-show="loadComplete">
+  <div class="col-xs-12" ng-show="comicSeries.characters.items.length">
+    <h3>Characters <small><a href="#">see all..</a></small></h3>
+  </div>
+  <div class="col-xs-12" ng-show="comicSeries.characters.items.length">
+    <div class="characters" ng-repeat="characters in comicSeries.characters.items">
+      <a href="">{{character.name}}</a>
+    </div>
+  </div>
+</div>
