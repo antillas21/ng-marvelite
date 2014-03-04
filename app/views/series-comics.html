@@ -1,0 +1,31 @@
+<div class="row">
+  <div class="col-xs-12">
+    <h2>Comics from {{comicSeries.title}}</h2>
+  </div>
+</div>
+
+<div class="row">
+  <div class="loading" ng-hide="loadComplete">
+    <i class="fa fa-refresh fa-spin fa-3x"></i>
+  </div>
+  <div class="no-results col-xs-12" ng-show="noResults">
+    <h3>No results found</h3>
+  </div>
+  <div class="comics" ng-show="loadComplete">
+    <div class="comic" ng-repeat="comic in seriesComics">
+      <div class="comic-cover col-xs-6 col-sm-4">
+        <resource-image object-type="comics" object-id="{{comic.id}}" thumbnail="comic.thumbnail" variant="portrait_fantastic" />
+      </div>
+      <comic-item comic="comic"></comic-item>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</div>
+
+<div class="pagination-container">
+  <ul class="pager">
+    <li class="previous" ng-show="pager.showPrev()"><a ng-href="/#/series/{{comiSeries.id}}/comics?page={{pager.prevPage()}}">&larr; prev</a></li>
+    <li class="next" ng-show="pager.showNext()"><a ng-href="/#/series/{{comicSeries.id}}/comics?page={{pager.nextPage()}}">next &rarr;</a></li>
+
+  </ul>
+</div>
