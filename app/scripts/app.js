@@ -24,6 +24,10 @@ angular.module('ngMarveliteApp', [
         templateUrl: 'views/character-comics.html',
         controller: 'CharacterComicsCtrl'
       })
+      .when('/characters/:id/events', {
+        templateUrl: 'views/character-events.html',
+        controller: 'CharacterEventsCtrl'
+      })
       .when('/characters/:id/series', {
         templateUrl: 'views/character-series.html',
         controller: 'CharacterSeriesListCtrl'
